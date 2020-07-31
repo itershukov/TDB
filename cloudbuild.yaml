@@ -5,6 +5,5 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['test']
     dir: 'functions'
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'test', '--trigger-http', '--runtime', 'nodejs10', '--entry-point', 'hello']
-    dir: 'functions/lib'
+  - name: 'gcr.io/test-50377/firebase'
+    args: ['deploy', '--project=test-50377', '--only=hosting']
