@@ -7,4 +7,4 @@ steps:
     dir: '/'
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['functions', 'deploy', 'test', '--trigger-http', '--runtime', 'nodejs10', '--entry-point', 'hello']
-    dir: 'function/dir/from/repo/root'
+    dir: '/'
