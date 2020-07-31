@@ -1,10 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
-    dir: ''
+    dir: 'functions'
   - name: 'gcr.io/cloud-builders/npm'
     args: ['test']
-    dir: ''
+    dir: 'functions'
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['functions', 'deploy', 'test', '--trigger-http', '--runtime', 'nodejs10', '--entry-point', 'hello']
-    dir: ''
+    dir: 'functions/lib'
