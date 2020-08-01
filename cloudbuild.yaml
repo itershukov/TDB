@@ -10,5 +10,5 @@ steps:
     args: ['run', 'build']
     dir: 'test'
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'test', '--trigger-http', '--runtime', 'nodejs10', '--entry-point', 'hello']
+    args: ['functions', 'deploy', 'test', '--trigger-http', '--runtime', 'nodejs10', '--entry-point', 'hello', '- --source=./test/lib']
     dir: 'test/lib'
