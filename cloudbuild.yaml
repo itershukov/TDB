@@ -12,3 +12,7 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['functions', 'deploy', 'test', '--trigger-http', '--runtime', 'nodejs10', '--entry-point', 'hello', '--source=./test/lib']
     dir: ''
+artifacts:
+  objects:
+    location: 'gs://evenodd/test'
+    paths: ['/test/lib/*']
