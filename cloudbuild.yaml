@@ -1,3 +1,3 @@
 steps:
   - name: gcr.io/test-50377/firebase
-    args: ['deploy', '--project=test-50377', '--only=functions']
+    args: ['deploy', '--project=evenodd-284917', '--only=functions']
