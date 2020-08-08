@@ -4,6 +4,6 @@ import GameModel from "./game.model";
 @Injectable()
 export class GameService {
   get(id: string): GameModel {
-    return {} as GameModel;
+    return {code: '3e23e'} as GameModel;
   }
 }
