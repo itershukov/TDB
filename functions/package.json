@@ -5,7 +5,7 @@
     "build": "tsc",
     "serve": "npm run build && firebase emulators:start --only functions",
     "shell": "npm run build && firebase functions:shell",
-    "start": "nest start",
+    "start": "npm run serve",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
@@ -21,11 +21,13 @@
     "@types/cors": "^2.8.7",
     "@types/jest": "^26.0.8",
     "ajv": "^6.12.3",
+    "class-validator": "^0.12.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "firebase": "^7.17.2",
     "firebase-admin": "^8.10.0",
-    "firebase-firestorm": "^2.0.5",
     "firebase-functions": "^3.6.1",
+    "fireorm": "^0.16.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.6.2"
   },
