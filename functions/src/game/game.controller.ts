@@ -1,6 +1,6 @@
-import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
 import {GameService} from "./game.service";
-import {NewGameModel, GameModel} from "./game.model";
+import {NewGameModel, GameModel, JoinGameModel} from "./game.model";
 
 @Controller('game')
 export class GameController {
@@ -9,6 +9,11 @@ export class GameController {
   @Post()
   create(@Body() gameData: NewGameModel): Promise<GameModel> {
     return this.gameService.create(gameData);
+  }
+
+  @Put('/:id')
+  join(@Param('id') id: string, @Body() gameData: JoinGameModel): Promise<GameModel> {
+    return this.gameService.join(id, gameData);
   }
 
   @Get(':id')

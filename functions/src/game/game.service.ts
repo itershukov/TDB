@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import {GameModel, NewGameModel} from "./game.model";
+import {ForbiddenException, Injectable, NotFoundException} from '@nestjs/common';
+import {GameModel, JoinGameModel, NewGameModel} from "./game.model";
 import {getRepository} from "fireorm";
 import {generateCode} from "./game.helper";
 
@@ -13,8 +13,25 @@ export class GameService {
     gameModel.participantsLimit = gameData.participantsLimit;
 
     const gameRepo = getRepository<GameModel>(GameModel);
-
     return gameRepo.create(gameModel);
+  }
+
+  async join(id: string, gameData: JoinGameModel): Promise<GameModel> {
+
+    const gameRepo = getRepository<GameModel>(GameModel);
+    const gameModel = await gameRepo.findById(id);
+    if (!gameModel){
+      throw new NotFoundException();
+    }
+
+    if (gameModel.participants.length >= gameModel.participantsLimit){
+      throw new ForbiddenException('Too many participants');
+    }
+
+    gameModel.participants.push(gameData.participant);
+
+    await gameRepo.update(gameModel);
+    return gameModel;
   }
 
   get(id: string): Promise<GameModel> {
