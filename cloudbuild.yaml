@@ -1,4 +1,4 @@
 steps:
   - name: gcr.io/tdbe-109da/firebase
-    timeout: '1m'
+    timeout: '1200s'
     args: ['deploy', '--project=tdbe-109da', '--only=functions']
