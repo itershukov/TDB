@@ -21,7 +21,7 @@
     "@types/cors": "^2.8.7",
     "@types/jest": "^26.0.8",
     "ajv": "^6.12.3",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase": "^7.17.2",
